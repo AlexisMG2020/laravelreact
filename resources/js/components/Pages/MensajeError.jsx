@@ -10,10 +10,11 @@ export default function MensajeError(props){
   }
   return(
     <>
-      <div> {message} </div>
+      {/* <div> {message} </div> */}
       <ul> {errores} </ul>    
     </>
   )
 
 
 }
+
