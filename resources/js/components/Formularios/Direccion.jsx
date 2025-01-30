@@ -3,7 +3,7 @@ import { Form, Button } from 'react-bootstrap';
 import useFetch from '../../hooks/useFetch';
 
 const opt = {};
-const token = '1|ei6TeYD0uOfPpxbD4yMIFrkF9fUhpgwZM08T2Dbj1f3f87fb';
+const token = '2|p1OQ9pwBeWWUiMILIM6XEHcMDZoFychzR7NmQqHCb215bc5b';
 
 export default function Direccion({url, id = 0}) {
     const [renderizado, setRenderizado] = useState(false);
@@ -39,7 +39,7 @@ export default function Direccion({url, id = 0}) {
     function handleSubmit(event) {
         event.preventDefault();
         const data = formToJSON(event.target.elements);
-        console.log(JSON.stringify(data));
+        // console.log(JSON.stringify(data));
         // const cu = useFetch('http://localhost:8000/api/direcciones/1', {body:JSON.stringify(data)}, token, 'POST');
         (async () => {
             try {

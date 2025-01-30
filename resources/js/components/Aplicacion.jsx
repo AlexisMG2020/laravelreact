@@ -3,14 +3,18 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Menu from "./Menu/Menu";
 import Index from "./Pages/Index";
+import Error404 from "./Pages/Error404";
 
 function Aplicacion() {
   return (
     <Router>
       <Menu />
+
+
       <div className="container">
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="*" element={<Error404/>} />          
         </Routes>
       </div>
     </Router>

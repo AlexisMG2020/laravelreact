@@ -1,11 +1,12 @@
 import React from "react";
-import { Navbar,Nav,NavDropdown,Form,Button,FormControl,Container } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown, Form, Button, FormControl, Container } from "react-bootstrap";
+import { Link } from "react-router-dom"; // Asegúrate de importar Link desde react-router-dom
 
-export default function Menu(props){
-  return(
+export default function Menu(props) {
+  return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
-        <Navbar.Brand href="#">UTVT</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">UTVT</Navbar.Brand> {/* Usa Link aquí para evitar la recarga de página */}
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -13,9 +14,9 @@ export default function Menu(props){
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Inicio</Nav.Link>          
+            <Nav.Link as={Link} to="/">Inicio</Nav.Link> {/* Usa Link en lugar de href */}
             <NavDropdown title="Catalogos" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="/direcciones">Direcciones</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/direcciones">Direcciones</NavDropdown.Item> {/* Usa Link aquí también */}
               <NavDropdown.Item href="#action4">Carreras</NavDropdown.Item>
               <NavDropdown.Divider />
               {/* <NavDropdown.Item href="#action5">
