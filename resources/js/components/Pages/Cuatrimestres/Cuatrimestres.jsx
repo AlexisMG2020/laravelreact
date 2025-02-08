@@ -8,19 +8,19 @@ import Formulario from './Formulario';
 import useFetch from '../../../hooks/useFetch';
 import MensajeError from '../MensajeError';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
-import {API_CARRERAS as API_URL, METODO_LISTAR, METODO_CREAR, METODO_EDITAR, METODO_BORRAR, API_TOKEN, CREAR, EDITAR} from '../../Constantes';
+import { faBuilding } from '@fortawesome/free-solid-svg-icons';
+import {API_CUATRIMESTRES as API_URL, METODO_LISTAR, METODO_CREAR, METODO_EDITAR, METODO_BORRAR, API_TOKEN, CREAR, EDITAR} from '../../Constantes';
 const opcionesListar = {};
 
-export default function Carreras(props) {
+export default function Cuatrimestres(props) {
     // estados
     const[datosModal, setDatosModal] = useState({mostrar:false});
     const[datosConfirmaEliminacion, setDatosConfirmaEliminacion] = useState({mostrar:false});
     const[accion, setAccion] = useState(null);
     const[formulario, setFormulario] = useState({
-        direccion_id: 1
-        , carrera: ''
-        , abreviatura: ''
+         cuatrimestre: 'Enero - Abril'
+        , fecha_inicio: '2020-01-07'
+        , fecha_termino: '2020-04-28'
         , estatus: 'Activo'
     });
     const[url_lista, setUrlLista] = useState(API_URL);
@@ -95,7 +95,7 @@ export default function Carreras(props) {
         setAccion(CREAR);
         setDatosModal({
             mostrar: true
-            , titulo: 'Agregar dirección'
+            , titulo: 'Agregar cuatrimestre'
         });
     }
     
@@ -103,14 +103,14 @@ export default function Carreras(props) {
         setId(registro.id);
         setAccion(EDITAR);
         setFormulario({
-            direccion_id: registro.direccion_id
-            , carrera: registro.carrera
-            , abreviatura: registro.abreviatura
+           cuatrimestre: registro.cuatrimestre
+            , fecha_inicio: registro.fecha_inicio
+            , fecha_termino: registro.fecha_termino
             , estatus: registro.estatus
         });
         setDatosModal({
             mostrar: true
-            , titulo: 'Editar dirección'
+            , titulo: 'Editar cuatrimestre'
         });
     }
     
@@ -147,7 +147,7 @@ export default function Carreras(props) {
     }
 
     return (
-        <Tarjeta titulo={<><FontAwesomeIcon icon={faGraduationCap} /> Carreras</>}>
+        <Tarjeta titulo={<><FontAwesomeIcon icon={faBuilding} />Cuatrimestres</>}>
             <ConfirmaEliminacion datos={datosConfirmaEliminacion} handleConfirmaEliminacion={handleConfirmaEliminacion} />
             <MiModal datos={datosModal}>
                 <Formulario formulario={formulario} handleSubmit={handleSubmit} />
@@ -158,14 +158,14 @@ export default function Carreras(props) {
 }
 
 function MensajeCreadoEditado(props) {
-    const {data:{id, carrera, abreviatura}} = props.result;
+    const {data:{id, cuatrimestre, fecha_inicio, fecha_termino}} = props.result;
     return (
         <>
             <div>
                 <strong>{props.titulo}</strong>
             </div>
             <div>
-                [{id}] {carrera} ({abreviatura})
+                [{id}] {cuatrimestre} ({fecha_inicio}) ({fecha_termino})
             </div>
         </>
     );

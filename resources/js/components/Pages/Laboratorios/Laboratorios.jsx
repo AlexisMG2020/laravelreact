@@ -8,18 +8,17 @@ import Formulario from './Formulario';
 import useFetch from '../../../hooks/useFetch';
 import MensajeError from '../MensajeError';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
-import {API_CARRERAS as API_URL, METODO_LISTAR, METODO_CREAR, METODO_EDITAR, METODO_BORRAR, API_TOKEN, CREAR, EDITAR} from '../../Constantes';
+import { faBuilding } from '@fortawesome/free-solid-svg-icons';
+import {API_LABORATORIOS as API_URL, METODO_LISTAR, METODO_CREAR, METODO_EDITAR, METODO_BORRAR, API_TOKEN, CREAR, EDITAR} from '../../Constantes';
 const opcionesListar = {};
 
-export default function Carreras(props) {
+export default function Laboratorios(props) {
     // estados
     const[datosModal, setDatosModal] = useState({mostrar:false});
     const[datosConfirmaEliminacion, setDatosConfirmaEliminacion] = useState({mostrar:false});
     const[accion, setAccion] = useState(null);
     const[formulario, setFormulario] = useState({
-        direccion_id: 1
-        , carrera: ''
+         Laboratorio: ''
         , abreviatura: ''
         , estatus: 'Activo'
     });
@@ -95,7 +94,7 @@ export default function Carreras(props) {
         setAccion(CREAR);
         setDatosModal({
             mostrar: true
-            , titulo: 'Agregar dirección'
+            , titulo: 'Agregar laboratorio'
         });
     }
     
@@ -103,14 +102,13 @@ export default function Carreras(props) {
         setId(registro.id);
         setAccion(EDITAR);
         setFormulario({
-            direccion_id: registro.direccion_id
-            , carrera: registro.carrera
+           laboratorio: registro.laboratorio
             , abreviatura: registro.abreviatura
             , estatus: registro.estatus
         });
         setDatosModal({
             mostrar: true
-            , titulo: 'Editar dirección'
+            , titulo: 'Editar laboratorio'
         });
     }
     
@@ -147,7 +145,7 @@ export default function Carreras(props) {
     }
 
     return (
-        <Tarjeta titulo={<><FontAwesomeIcon icon={faGraduationCap} /> Carreras</>}>
+        <Tarjeta titulo={<><FontAwesomeIcon icon={faBuilding} />Laboratorios</>}>
             <ConfirmaEliminacion datos={datosConfirmaEliminacion} handleConfirmaEliminacion={handleConfirmaEliminacion} />
             <MiModal datos={datosModal}>
                 <Formulario formulario={formulario} handleSubmit={handleSubmit} />
@@ -158,14 +156,14 @@ export default function Carreras(props) {
 }
 
 function MensajeCreadoEditado(props) {
-    const {data:{id, carrera, abreviatura}} = props.result;
+    const {data:{id, laboratorio, abreviatura}} = props.result;
     return (
         <>
             <div>
                 <strong>{props.titulo}</strong>
             </div>
             <div>
-                [{id}] {carrera} ({abreviatura})
+                [{id}] {laboratorio} ({abreviatura})
             </div>
         </>
     );

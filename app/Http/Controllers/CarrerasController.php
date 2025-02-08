@@ -74,7 +74,7 @@ class CarrerasController extends Controller
                 return $query->where('estatus', '=', $estatus);
             })
 
-      //  ->orderBy($ordenar_por, $o) //Ordenar  
+       ->orderBy($ordenar_por, $o) //Ordenar  
         ->paginate());
     }
     

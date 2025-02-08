@@ -8,6 +8,8 @@ import Direcciones from "./Pages/Direcciones/Direcciones";
 import { ToastContainer } from "react-toastify";
 import Carreras from "./Pages/Carreras/Carreras";
 import Asignaturas from "./Pages/Asignaturas/Asignaturas";
+import Laboratorios from "./Pages/Laboratorios/Laboratorios";
+import Cuatrimestres from "./Pages/Cuatrimestres/Cuatrimestres";
 
 function Aplicacion() {
   return (
@@ -22,6 +24,8 @@ function Aplicacion() {
           <Route path="/direcciones" element={<Direcciones />} />
           <Route path="/carreras" element={<Carreras />} />
           <Route path="/asignaturas" element={<Asignaturas />} />
+          <Route path="/laboratorios" element={<Laboratorios />} />
+          <Route path="/cuatrimestres" element={<Cuatrimestres />} />
           <Route path="*" element={<Error404/>} />          
         </Routes>
       </div>
