@@ -8,17 +8,18 @@ import Formulario from './Formulario';
 import useFetch from '../../../hooks/useFetch';
 import MensajeError from '../MensajeError';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBuilding } from '@fortawesome/free-solid-svg-icons';
-import {API_DIRECCIONES as API_URL, METODO_LISTAR, METODO_CREAR, METODO_EDITAR, METODO_BORRAR, API_TOKEN, CREAR, EDITAR} from '../../Constantes';
+import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
+import {API_ASIGNATURAS as API_URL, METODO_LISTAR, METODO_CREAR, METODO_EDITAR, METODO_BORRAR, API_TOKEN, CREAR, EDITAR} from '../../Constantes';
 const opcionesListar = {};
 
-export default function Direcciones(props) {
+export default function Asignaturas(props) {
     // estados
     const[datosModal, setDatosModal] = useState({mostrar:false});
     const[datosConfirmaEliminacion, setDatosConfirmaEliminacion] = useState({mostrar:false});
     const[accion, setAccion] = useState(null);
     const[formulario, setFormulario] = useState({
-        direccion: ''
+        carrera_id: 1
+        , asignatura: ''
         , abreviatura: ''
         , estatus: 'Activo'
     });
@@ -94,27 +95,26 @@ export default function Direcciones(props) {
         setAccion(CREAR);
         setDatosModal({
             mostrar: true
-            , titulo: 'Agregar dirección'
+            , titulo: 'Agregar asignatura'
         });
     }
     
     function handleEdita(registro) {
-      setDatosConfirmaEliminacion({ mostrar: false });
         setId(registro.id);
         setAccion(EDITAR);
         setFormulario({
-            direccion: registro.direccion
+            carrera_id: registro.carrera_id
+            , asignatura: registro.asignatura
             , abreviatura: registro.abreviatura
             , estatus: registro.estatus
         });
         setDatosModal({
             mostrar: true
-            , titulo: 'Editar dirección'
+            , titulo: 'Editar asignatura'
         });
     }
     
     function handleBorra(registro) {
-        setDatosModal({ mostrar: false }); // Cierra el modal de edición si está abierto
         setUrlBorra(`${API_URL}/${registro.id}`);
         setDatosConfirmaEliminacion({
             mostrar: true
@@ -147,7 +147,7 @@ export default function Direcciones(props) {
     }
 
     return (
-        <Tarjeta titulo={<><FontAwesomeIcon icon={faBuilding} /> Direcciones</>}>
+        <Tarjeta titulo={<><FontAwesomeIcon icon={faGraduationCap} /> Asignaturas</>}>
             <ConfirmaEliminacion datos={datosConfirmaEliminacion} handleConfirmaEliminacion={handleConfirmaEliminacion} />
             <MiModal datos={datosModal}>
                 <Formulario formulario={formulario} handleSubmit={handleSubmit} />
@@ -158,15 +158,14 @@ export default function Direcciones(props) {
 }
 
 function MensajeCreadoEditado(props) {
-    const {data:{id, direccion, abreviatura}} = props.result;
+    const {data:{id, asignatura, abreviatura}} = props.result;
     return (
         <>
             <div>
                 <strong>{props.titulo}</strong>
             </div>
             <div>
-                {/* [{id}]  */}
-                {direccion} ({abreviatura})
+                [{id}] {asignatura} ({abreviatura})
             </div>
         </>
     );

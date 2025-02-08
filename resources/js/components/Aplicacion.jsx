@@ -6,6 +6,8 @@ import Index from "./Pages/Index";
 import Error404 from "./Pages/Error404";
 import Direcciones from "./Pages/Direcciones/Direcciones";
 import { ToastContainer } from "react-toastify";
+import Carreras from "./Pages/Carreras/Carreras";
+import Asignaturas from "./Pages/Asignaturas/Asignaturas";
 
 function Aplicacion() {
   return (
@@ -18,6 +20,8 @@ function Aplicacion() {
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/direcciones" element={<Direcciones />} />
+          <Route path="/carreras" element={<Carreras />} />
+          <Route path="/asignaturas" element={<Asignaturas />} />
           <Route path="*" element={<Error404/>} />          
         </Routes>
       </div>

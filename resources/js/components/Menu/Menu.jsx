@@ -17,7 +17,9 @@ export default function Menu(props) {
             <Nav.Link as={Link} to="/">Inicio</Nav.Link> {/* Usa Link en lugar de href */}
             <NavDropdown title="Catalogos" id="navbarScrollingDropdown">
               <NavDropdown.Item as={Link} to="/direcciones">Direcciones</NavDropdown.Item> {/* Usa Link aquí también */}
-              <NavDropdown.Item href="#action4">Carreras</NavDropdown.Item>
+              <NavDropdown.Item href="/carreras">Carreras</NavDropdown.Item>
+              <NavDropdown.Item href="/asignaturas">Asignaturas</NavDropdown.Item>
+
               <NavDropdown.Divider />
               {/* <NavDropdown.Item href="#action5">
                 Something else here
