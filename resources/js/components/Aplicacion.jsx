@@ -10,6 +10,9 @@ import Carreras from "./Pages/Carreras/Carreras";
 import Asignaturas from "./Pages/Asignaturas/Asignaturas";
 import Laboratorios from "./Pages/Laboratorios/Laboratorios";
 import Cuatrimestres from "./Pages/Cuatrimestres/Cuatrimestres";
+import Unidades_medida from "./Pages/Unidades de Medida/Unidades_medida";
+import Materiales from "./Pages/Materiales/Materiales";
+import Dias_Feriados from "./Pages/Dia_Feriado/Dia_Feriado";
 
 function Aplicacion() {
   return (
@@ -26,6 +29,11 @@ function Aplicacion() {
           <Route path="/asignaturas" element={<Asignaturas />} />
           <Route path="/laboratorios" element={<Laboratorios />} />
           <Route path="/cuatrimestres" element={<Cuatrimestres />} />
+          <Route path="/cuatrimestres" element={<Cuatrimestres />} />
+          <Route path="/unidades_medidas" element={<Unidades_medida />} />
+          <Route path="/materiales" element={<Materiales />} />
+          <Route path="/dias_feriados" element={<Dias_Feriados />} />
+
           <Route path="*" element={<Error404/>} />          
         </Routes>
       </div>

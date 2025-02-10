@@ -22,7 +22,10 @@ class DatabaseSeeder extends Seeder
                 // CarrerasTableSeeder::class,  
                 // AsignaturasTableSeeder::class,
                 // LaboratoriosTableSeeder::class,
-                CuatrimestresTableSeeder::class  
+                // CuatrimestresTableSeeder::class,
+                // Unidades_MedidasTableSeeder::class  
+                // MaterialesTableSeeder::class,
+                DiasFeriadosTableSeeder::class,
             ]
         );
 
