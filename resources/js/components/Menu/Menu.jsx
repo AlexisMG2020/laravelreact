@@ -17,15 +17,18 @@ export default function Menu(props) {
             <Nav.Link as={Link} to="/">Inicio</Nav.Link> {/* Usa Link en lugar de href */}
             <NavDropdown title="Catalogos" id="navbarScrollingDropdown">
               <NavDropdown.Item as={Link} to="/direcciones">Direcciones</NavDropdown.Item> {/* Usa Link aquí también */}
-              <NavDropdown.Item href="/carreras">Carreras</NavDropdown.Item>
-              <NavDropdown.Item href="/asignaturas">Asignaturas</NavDropdown.Item>
-              <NavDropdown.Item href="/laboratorios">Laboratorios</NavDropdown.Item>
-              <NavDropdown.Item href="/cuatrimestres">Cuatrimestres</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/carreras">Carreras</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/asignaturas">Asignaturas</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/laboratorios">Laboratorios</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/cuatrimestres">Cuatrimestres</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/unidades_medidas">Unidades de Medida</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/materiales">Materiales</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/dias_feriados">Dias Feriados</NavDropdown.Item>
 
               <NavDropdown.Divider />
-              {/* <NavDropdown.Item href="#action5">
+              <NavDropdown.Item href="#action5">
                 Something else here
-              </NavDropdown.Item> */}
+              </NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Form className="d-flex">

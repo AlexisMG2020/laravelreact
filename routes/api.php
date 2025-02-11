@@ -9,6 +9,9 @@ use App\Http\Controllers\CarrerasController;
 use App\Http\Controllers\AsignaturasController;
 use App\Http\Controllers\LaboratoriosController;
 use App\Http\Controllers\CuatrimestresController;
+use App\Http\Controllers\Unidades_MedidasController;
+use App\Http\Controllers\MaterialesController;
+use App\Http\Controllers\Dias_feriadosController;
 
 /* Route::get('/user', function (Request $request) {
     return $request->user();
@@ -27,4 +30,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::resource('asignaturas', AsignaturasController::class)->except(['create','edit']);
     Route::resource('laboratorios', LaboratoriosController::class)->except(['create', 'edit']);
     Route::resource('cuatrimestres', CuatrimestresController::class)->except(['create', 'edit']);
+    Route::resource('unidades_medidas', Unidades_MedidasController::class)->except(['create', 'edit']);
+    Route::resource('materiales', MaterialesController::class)->except(['create', 'edit']);
+    Route::resource('dias_feriados', Dias_feriadosController::class)->except(['create', 'edit']);      
 });
