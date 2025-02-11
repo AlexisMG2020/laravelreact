@@ -13,6 +13,7 @@ import Cuatrimestres from "./Pages/Cuatrimestres/Cuatrimestres";
 import Unidades_medida from "./Pages/Unidades de Medida/Unidades_medida";
 import Materiales from "./Pages/Materiales/Materiales";
 import Dias_Feriados from "./Pages/Dia_Feriado/Dia_Feriado";
+import Grupos_Laboratorios from "./Pages/Grupos_Laboratorios/Grupos_laboratorios";
 
 function Aplicacion() {
   return (
@@ -33,6 +34,7 @@ function Aplicacion() {
           <Route path="/unidades_medidas" element={<Unidades_medida />} />
           <Route path="/materiales" element={<Materiales />} />
           <Route path="/dias_feriados" element={<Dias_Feriados />} />
+          <Route path="/grupos_laboratorios" element={<Grupos_Laboratorios />} />
 
           <Route path="*" element={<Error404/>} />          
         </Routes>
