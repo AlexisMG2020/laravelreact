@@ -12,6 +12,7 @@ use App\Http\Controllers\CuatrimestresController;
 use App\Http\Controllers\Unidades_MedidasController;
 use App\Http\Controllers\MaterialesController;
 use App\Http\Controllers\Dias_feriadosController;
+use App\Http\Controllers\GruposLaboratorioController;
 
 /* Route::get('/user', function (Request $request) {
     return $request->user();
@@ -33,4 +34,5 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::resource('unidades_medidas', Unidades_MedidasController::class)->except(['create', 'edit']);
     Route::resource('materiales', MaterialesController::class)->except(['create', 'edit']);
     Route::resource('dias_feriados', Dias_feriadosController::class)->except(['create', 'edit']);      
+    Route::resource('grupos_laboratorios', GruposLaboratorioController::class)->except(['create', 'edit']); 
 });
