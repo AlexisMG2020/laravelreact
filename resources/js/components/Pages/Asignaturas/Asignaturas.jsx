@@ -70,7 +70,7 @@ export default function Asignaturas(props) {
                 setDetonarEdicion(false);
                 break;
             default:
-                toast.error(<MensajeError result={estatusEditar.result} />, {autoClose: 2500});
+                toast.error(<MensajeError results={estatusEditar.result} />, {autoClose: 2500});
         }
     }, [estatusEditar])
     
@@ -86,7 +86,7 @@ export default function Asignaturas(props) {
                 setDetonarBorrado(false);
                 break;
             default:
-                toast.error(<MensajeError result={estatusBorrar.result} />, {autoClose: 2500});
+                toast.error(<MensajeError results={estatusBorrar.result} />, {autoClose: 2500});
         }
     }, [estatusBorrar])
 

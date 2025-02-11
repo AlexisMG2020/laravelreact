@@ -8,20 +8,18 @@ import Formulario from './Formulario';
 import useFetch from '../../../hooks/useFetch';
 import MensajeError from '../MensajeError';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
-import {API_CARRERAS as API_URL, METODO_LISTAR, METODO_CREAR, METODO_EDITAR, METODO_BORRAR, API_TOKEN, CREAR, EDITAR} from '../../Constantes';
+import { faBuilding } from '@fortawesome/free-solid-svg-icons';
+import {API_DIAS_FERIADOS as API_URL, METODO_LISTAR, METODO_CREAR, METODO_EDITAR, METODO_BORRAR, API_TOKEN, CREAR, EDITAR} from '../../Constantes';
 const opcionesListar = {};
 
-export default function Carreras(props) {
+export default function Dias_Feriados(props) {
     // estados
     const[datosModal, setDatosModal] = useState({mostrar:false});
     const[datosConfirmaEliminacion, setDatosConfirmaEliminacion] = useState({mostrar:false});
     const[accion, setAccion] = useState(null);
     const[formulario, setFormulario] = useState({
-        direccion_id: 1
-        , carrera: ''
-        , abreviatura: ''
-        , estatus: 'Activo'
+         id: '2020-'
+        
     });
     const[url_lista, setUrlLista] = useState(API_URL);
     const[url_edicion, setUrlEdicion] = useState(API_URL);
@@ -95,7 +93,7 @@ export default function Carreras(props) {
         setAccion(CREAR);
         setDatosModal({
             mostrar: true
-            , titulo: 'Agregar dirección'
+            , titulo: 'Agregar Dia feriado'
         });
     }
     
@@ -103,14 +101,12 @@ export default function Carreras(props) {
         setId(registro.id);
         setAccion(EDITAR);
         setFormulario({
-            direccion_id: registro.direccion_id
-            , carrera: registro.carrera
-            , abreviatura: registro.abreviatura
-            , estatus: registro.estatus
+           id: registro.id
+
         });
         setDatosModal({
             mostrar: true
-            , titulo: 'Editar dirección'
+            , titulo: 'Editar Dia feriado'
         });
     }
     
@@ -147,7 +143,7 @@ export default function Carreras(props) {
     }
 
     return (
-        <Tarjeta titulo={<><FontAwesomeIcon icon={faGraduationCap} /> Carreras</>}>
+        <Tarjeta titulo={<><FontAwesomeIcon icon={faBuilding} />Dias Feriados</>}>
             <ConfirmaEliminacion datos={datosConfirmaEliminacion} handleConfirmaEliminacion={handleConfirmaEliminacion} />
             <MiModal datos={datosModal}>
                 <Formulario formulario={formulario} handleSubmit={handleSubmit} />
@@ -158,14 +154,14 @@ export default function Carreras(props) {
 }
 
 function MensajeCreadoEditado(props) {
-    const {data:{id, carrera, abreviatura}} = props.result;
+    const {data:{ id }} = props.result;
     return (
         <>
             <div>
                 <strong>{props.titulo}</strong>
             </div>
             <div>
-                [{id}] {carrera} ({abreviatura})
+                [{id}]
             </div>
         </>
     );

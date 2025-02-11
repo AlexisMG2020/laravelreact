@@ -9,18 +9,19 @@ import useFetch from '../../../hooks/useFetch';
 import MensajeError from '../MensajeError';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
-import {API_CARRERAS as API_URL, METODO_LISTAR, METODO_CREAR, METODO_EDITAR, METODO_BORRAR, API_TOKEN, CREAR, EDITAR} from '../../Constantes';
+import {API_MATERIALES as API_URL, METODO_LISTAR, METODO_CREAR, METODO_EDITAR, METODO_BORRAR, API_TOKEN, CREAR, EDITAR} from '../../Constantes';
 const opcionesListar = {};
 
-export default function Carreras(props) {
+export default function Materiales(props) {
     // estados
     const[datosModal, setDatosModal] = useState({mostrar:false});
     const[datosConfirmaEliminacion, setDatosConfirmaEliminacion] = useState({mostrar:false});
     const[accion, setAccion] = useState(null);
     const[formulario, setFormulario] = useState({
-        direccion_id: 1
-        , carrera: ''
-        , abreviatura: ''
+        unidad_medida_id: 1
+        , material: 'Tinta'
+        , abreviatura: 'TIN'
+        , tipo : 'Activo'
         , estatus: 'Activo'
     });
     const[url_lista, setUrlLista] = useState(API_URL);
@@ -95,7 +96,7 @@ export default function Carreras(props) {
         setAccion(CREAR);
         setDatosModal({
             mostrar: true
-            , titulo: 'Agregar dirección'
+            , titulo: 'Agregar material'
         });
     }
     
@@ -103,14 +104,15 @@ export default function Carreras(props) {
         setId(registro.id);
         setAccion(EDITAR);
         setFormulario({
-            direccion_id: registro.direccion_id
-            , carrera: registro.carrera
+            unidad_medida_id: registro.unidad_medida_id
+            , material: registro.material
+            , tipo: registro.tipo
             , abreviatura: registro.abreviatura
             , estatus: registro.estatus
         });
         setDatosModal({
             mostrar: true
-            , titulo: 'Editar dirección'
+            , titulo: 'Editar material'
         });
     }
     
@@ -147,7 +149,7 @@ export default function Carreras(props) {
     }
 
     return (
-        <Tarjeta titulo={<><FontAwesomeIcon icon={faGraduationCap} /> Carreras</>}>
+        <Tarjeta titulo={<><FontAwesomeIcon icon={faGraduationCap} /> Materiales</>}>
             <ConfirmaEliminacion datos={datosConfirmaEliminacion} handleConfirmaEliminacion={handleConfirmaEliminacion} />
             <MiModal datos={datosModal}>
                 <Formulario formulario={formulario} handleSubmit={handleSubmit} />
@@ -158,14 +160,14 @@ export default function Carreras(props) {
 }
 
 function MensajeCreadoEditado(props) {
-    const {data:{id, carrera, abreviatura}} = props.result;
+    const {data:{id, material, abreviatura}} = props.result;
     return (
         <>
             <div>
                 <strong>{props.titulo}</strong>
             </div>
             <div>
-                [{id}] {carrera} ({abreviatura})
+                [{id}] {material} ({abreviatura})
             </div>
         </>
     );

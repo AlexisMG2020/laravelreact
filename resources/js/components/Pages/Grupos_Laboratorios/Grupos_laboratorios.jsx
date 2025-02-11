@@ -8,20 +8,39 @@ import Formulario from './Formulario';
 import useFetch from '../../../hooks/useFetch';
 import MensajeError from '../MensajeError';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
-import {API_CARRERAS as API_URL, METODO_LISTAR, METODO_CREAR, METODO_EDITAR, METODO_BORRAR, API_TOKEN, CREAR, EDITAR} from '../../Constantes';
+import { faBuilding } from '@fortawesome/free-solid-svg-icons';
+import {API_GRUPOS_LABORATORIOS as API_URL, METODO_LISTAR, METODO_CREAR, METODO_EDITAR, METODO_BORRAR, API_TOKEN, CREAR, EDITAR} from '../../Constantes';
 const opcionesListar = {};
 
-export default function Carreras(props) {
+export default function Grupos_Laboratorios(props) {
     // estados
     const[datosModal, setDatosModal] = useState({mostrar:false});
     const[datosConfirmaEliminacion, setDatosConfirmaEliminacion] = useState({mostrar:false});
     const[accion, setAccion] = useState(null);
     const[formulario, setFormulario] = useState({
-        direccion_id: 1
-        , carrera: ''
-        , abreviatura: ''
-        , estatus: 'Activo'
+            laboratorio_id:1
+            , cuatrimestre_id:1
+            , direccion_id:1
+            , carrera_id:1
+            , asignatura_id:1
+            , docente_id:1
+            , dias_asignados: []
+            , grupo: 'MEC21'
+            , lunes_inicio: '00:00:00'
+            , lunes_fin:'00:00:00'
+            , martes_inicio:'00:00:00'
+            , martes_fin:'00:00:00'
+            , miercoles_inicio:'00:00:00'
+            , miercoles_fin:'00:00:00'
+            , jueves_inicio:'00:00:00'
+            , jueves_fin:'00:00:00'
+            , viernes_inicio:'00:00:00'
+            , viernes_fin:'00:00:00'
+            , sabado_inicio:'00:00:00'
+            , sabado_fin:'00:00:00'
+            , domingo_inicio:'00:00:00'
+            , domingo_fin:'00:00:00'
+            , estatus: 'Activo'
     });
     const[url_lista, setUrlLista] = useState(API_URL);
     const[url_edicion, setUrlEdicion] = useState(API_URL);
@@ -95,7 +114,7 @@ export default function Carreras(props) {
         setAccion(CREAR);
         setDatosModal({
             mostrar: true
-            , titulo: 'Agregar dirección'
+            , titulo: 'Agregar Grupo Laboratorio'
         });
     }
     
@@ -103,14 +122,33 @@ export default function Carreras(props) {
         setId(registro.id);
         setAccion(EDITAR);
         setFormulario({
-            direccion_id: registro.direccion_id
-            , carrera: registro.carrera
-            , abreviatura: registro.abreviatura
+            laboratorio_id: registro.laboratorio_id
+            , cuatrimestre_id: registro.cuatrimestre_id
+            , direccion_id: registro.direccion_id
+            , carrera_id: registro.carrera_id
+            , asignatura_id: registro.asignatura_id
+            , docente_id: registro.docente_id
+            , dias_asignados: registro.dias_asignados
+            , grupo: registro.grupo
+            , lunes_inicio: registro.lunes_inicio
+            , lunes_fin: registro.lunes_fin
+            , martes_inicio: registro.martes_inicio
+            , martes_fin: registro.martes_fin
+            , miercoles_inicio: registro.miercoles_inicio
+            , miercoles_fin: registro.miercoles_fin
+            , jueves_inicio: registro.jueves_inicio
+            , jueves_fin: registro.jueves_fin
+            , viernes_inicio: registro.viernes_inicio
+            , viernes_fin: registro.viernes_fin
+            , sabado_inicio: registro.sabado_inicio
+            , sabado_fin: registro.sabado_fin
+            , domingo_inicio: registro.domingo_inicio
+            , domingo_fin: registro.domingo_fin
             , estatus: registro.estatus
         });
         setDatosModal({
             mostrar: true
-            , titulo: 'Editar dirección'
+            , titulo: 'Editar Grupo Laboratorio'
         });
     }
     
@@ -147,7 +185,7 @@ export default function Carreras(props) {
     }
 
     return (
-        <Tarjeta titulo={<><FontAwesomeIcon icon={faGraduationCap} /> Carreras</>}>
+        <Tarjeta titulo={<><FontAwesomeIcon icon={faBuilding} />Grupos Laboratorios</>}>
             <ConfirmaEliminacion datos={datosConfirmaEliminacion} handleConfirmaEliminacion={handleConfirmaEliminacion} />
             <MiModal datos={datosModal}>
                 <Formulario formulario={formulario} handleSubmit={handleSubmit} />
@@ -158,15 +196,40 @@ export default function Carreras(props) {
 }
 
 function MensajeCreadoEditado(props) {
-    const {data:{id, carrera, abreviatura}} = props.result;
+    const { id, laboratorio_id, cuatrimestre_id, direccion_id, carrera_id, asignatura_id, docente_id, dias_asignados, grupo, lunes_inicio, lunes_fin, martes_fin, martes_inicio, miercoles_inicio, miercoles_fin, jueves_inicio, jueves_fin, viernes_inicio, viernes_fin, sabado_inicio, sabado_fin, domingo_inicio, domingo_fin, estatus } = props.result.data;
+
     return (
         <>
             <div>
                 <strong>{props.titulo}</strong>
             </div>
-            <div>
-                [{id}] {carrera} ({abreviatura})
-            </div>
+            {/* <div>
+                [{id}] ({dias_asignados?.join(', ')}) 
+            </div> */}
+        {/*     <div>
+    [{id}] ({Array.isArray(dias_asignados) ? dias_asignados.join(', ') : 'Sin días asignados'}) 
+</div> */}
+
         </>
     );
 }
+
+
+    /* function MensajeCreadoEditado(props) {
+        const { titulo, result } = props;
+    
+        // Si `result` es undefined o null, usa un objeto vacío
+        const { dias_asignados = [], grupo = "Sin grupo" } = result || {};
+    
+        return (
+            <>
+                <div>
+                    <strong>{titulo}</strong>
+                </div>
+                <div>
+                    [{grupo}] ({dias_asignados.length > 0 ? dias_asignados.join(', ') : "Sin días asignados"})
+                </div>
+            </>
+        );
+    } */
+    
