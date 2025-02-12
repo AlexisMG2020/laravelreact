@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(
             [
-                /* UsersTableSeeder::class,
+                // UsersTableSeeder::class,
                 DireccionesTableSeeder::class,
                 CarrerasTableSeeder::class,  
                 AsignaturasTableSeeder::class,
@@ -25,8 +25,10 @@ class DatabaseSeeder extends Seeder
                 CuatrimestresTableSeeder::class,
                 Unidades_MedidasTableSeeder::class,
                 MaterialesTableSeeder::class,
-                DiasFeriadosTableSeeder::class, */
+                DiasFeriadosTableSeeder::class,
                 Grupos_LaboratoriosTableSeeder::class,
+                Formatos_LaboratoriosTableSeeder::class,
+                DetalleFormatoLaboratorioTableSeeder::class,
             ]
         );
 

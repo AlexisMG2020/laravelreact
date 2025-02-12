@@ -25,6 +25,8 @@ export default function Menu(props) {
               <NavDropdown.Item as={Link} to="/materiales">Materiales</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/dias_feriados">Dias Feriados</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/grupos_laboratorios">Grupos Laboratorios</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/formatos_laboratorios">Formatos Laboratorios</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/detalle_formato_laboratorio">Detalles Formato Laboratorios</NavDropdown.Item>
 
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action5">

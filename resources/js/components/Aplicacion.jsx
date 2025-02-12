@@ -14,6 +14,8 @@ import Unidades_medida from "./Pages/Unidades de Medida/Unidades_medida";
 import Materiales from "./Pages/Materiales/Materiales";
 import Dias_Feriados from "./Pages/Dia_Feriado/Dia_Feriado";
 import Grupos_Laboratorios from "./Pages/Grupos_Laboratorios/Grupos_laboratorios";
+import Formatos_Laboratorios from "./Pages/Formatos_Laboratorios/Formatos_Laboratorios";
+import Detalles_formatos_laboratorios from "./Pages/Detalle_Formatos_Laboratorios/Detalle_Formatos_Laboratorios";
 
 function Aplicacion() {
   return (
@@ -35,6 +37,8 @@ function Aplicacion() {
           <Route path="/materiales" element={<Materiales />} />
           <Route path="/dias_feriados" element={<Dias_Feriados />} />
           <Route path="/grupos_laboratorios" element={<Grupos_Laboratorios />} />
+          <Route path="/formatos_laboratorios" element={<Formatos_Laboratorios />} />
+          <Route path="/detalle_formato_laboratorio" element={<Detalles_formatos_laboratorios />} />
 
           <Route path="*" element={<Error404/>} />          
         </Routes>
