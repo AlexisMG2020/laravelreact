@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\Response;
     return view('app');
 }); */
 
-// Auth::routes();
+Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 /* Route::get('/formato', function(){
     set_time_limit(0);
@@ -28,7 +28,7 @@ use Illuminate\Support\Facades\Response;
 
 })->name('formato'); */
 
-/* Route::get('/formato', function(){
+Route::get('/formato', function(){
     set_time_limit(0);
 
     // Generar el nombre del archivo y la ruta
@@ -44,7 +44,7 @@ use Illuminate\Support\Facades\Response;
     }
 
     return response()->json(['error' => 'Archivo no encontrado', 'ruta' => $ruta_archivo], 404);
-})->name('formato'); */
+})->name('formato');
 
 
 Route::get('/formato', function(){
