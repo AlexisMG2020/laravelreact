@@ -22,8 +22,7 @@ class DireccionesController extends Controller
         , 'estatus' => 'estatus'
     ];
 
-    protected function setValidator(Request $request,
-        $replaceValidationRules = [])
+    protected function setValidator(Request $request,$replaceValidationRules = [])
     {
         return Validator::make(
             $request->all()

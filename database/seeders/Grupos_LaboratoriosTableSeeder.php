@@ -24,7 +24,7 @@ class Grupos_LaboratoriosTableSeeder extends Seeder
                 , 'carrera_id' => 1
                 , 'asignatura_id' => 1
                 , 'docente_id' => 1
-                , 'dias_asignados' => 'Viernes,Sabado'
+                , 'dias_asignados' => implode(',', ['Miercoles', 'Sabado'])
                 , 'grupo' => 'DSM51'
                 , 'lunes_inicio' => null
                 , 'lunes_fin' => null
@@ -51,7 +51,7 @@ class Grupos_LaboratoriosTableSeeder extends Seeder
                 , 'carrera_id' => 1
                 , 'asignatura_id' => 1
                 , 'docente_id' => 1
-                , 'dias_asignados' => 'Miercoles,Sabado'
+                , 'dias_asignados' => implode(',', ['Miercoles', 'Sabado'])
                 , 'grupo' => 'DSM53'
                 , 'lunes_inicio' => null
                 , 'lunes_fin' => null
