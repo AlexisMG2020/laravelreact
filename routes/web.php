@@ -30,7 +30,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 // ! Bien
-/* Route::get('/formato', function(){
+Route::get('/formato', function(){
     set_time_limit(0);
 
     // Generar el nombre del archivo y la ruta
@@ -46,10 +46,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
     }
 
     return response()->json(['error' => 'Archivo no encontrado', 'ruta' => $ruta_archivo], 404);
-})->name('formato'); */
+})->name('formato');
 
 
-Route::get('/formato', function(){
+/* Route::get('/formato', function(){
     set_time_limit(0);
 
     // 📌 Generar nombre de archivo y ruta en storage
@@ -72,7 +72,7 @@ Route::get('/formato', function(){
         'retorno' => $retorno
     ], 404);
 })->name('formato');
-
+ */
 
 Route::any('/{a?}', function () {
     return view('/app');
